@@ -1,9 +1,8 @@
 ---
-interface Props {
-	title: string;
-}
+
 
 const { title } = Astro.props;
+import { Icon } from 'astro-icon/components'
 ---
 
 <!doctype html>
@@ -17,10 +16,19 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-      <header>
-		<div class="container">
-			este es el encabezado
-		</div>
+      <header class="h-16 flex  items-center">
+		 <div class="container flex flex-row   items-center justify-between max-w-[1200px] mx-auto">
+				<img src="/duolingo-logo.svg" alt="">
+				<a class=" relative group flex flex-row items-center hover:text-[#b9b7b7] text-gray-400 font- font-extrabold uppercase" href="#">
+					Idioma de la Pagina
+					<Icon name="mdi:chevron-down" />
+					 <div class=" absolute top-6 hidden group-hover:block ">
+						opciones de menu
+					 </div>
+
+				</a>
+		 </div>
+		
 	  </header>
 		<slot />
 		<footer class="container">
@@ -29,39 +37,4 @@ const { title } = Astro.props;
 		</footer>
 	</body>
 </html>
-<style is:global>
-	footer{
-		background: pink;
-		height: 32px;
-	}
-	.container {
-		margin: 0 auto;
-        max-width: 800px;
-		background: orange;
 
-
-	}
-	 header{
-     background-color: green;
-	 height: 36px;
-
-
-	 }
-	html  , body {
-		font-family: system-ui, sans-serif;
-		margin: 0;
-		padding: 0;
-		
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
